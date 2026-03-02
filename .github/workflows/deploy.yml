@@ -32,7 +32,6 @@ jobs:
             security: loose
             local-dir: ./
             server-dir: /309aircadets.co.uk/htdocs/
-            dangerous-clean-slate: true
             timeout: 600000
 
       # Extract on server
