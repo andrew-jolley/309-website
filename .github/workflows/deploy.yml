@@ -31,7 +31,7 @@ jobs:
           port: 21
           local-dir: ./deploy/
           server-dir: /309aircadets.co.uk/htdocs/
-          dangerous-clean-slate: false
+          dangerous-clean-slate: true
 
       # Extract on server
       - name: Trigger deploy
