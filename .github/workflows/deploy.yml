@@ -28,6 +28,9 @@ jobs:
             local-dir: ./
             server-dir: /309aircadets.co.uk/htdocs/
 
+            dangerous-clean-slate: true
+            log-level: verbose
+
             exclude: |
                 **/.git*
                 **/.git*/**
