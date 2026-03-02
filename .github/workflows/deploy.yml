@@ -21,17 +21,19 @@ jobs:
             -x "deploy/*"
 
       # Upload ONLY deploy folder
-      - name: Upload zip
+      - name: Upload repository
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./deploy/
-          server-dir: /309aircadets.co.uk/htdocs/
-          dangerous-clean-slate: true
+            server: ${{ secrets.FTP_SERVER }}
+            username: ${{ secrets.FTP_USERNAME }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            protocol: ftp
+            port: 21
+            security: loose
+            local-dir: ./
+            server-dir: /309aircadets.co.uk/htdocs/
+            dangerous-clean-slate: true
+            timeout: 600000
 
       # Extract on server
       - name: Trigger deploy
