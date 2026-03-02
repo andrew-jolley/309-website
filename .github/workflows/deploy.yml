@@ -12,9 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Create zip
       - name: Create zip
-        run: zip -r site.zip . -x "*.git*"
+        run: |
+          mkdir deploy
+          zip -r deploy/site.zip . \
+            -x "*.git*" \
+            -x "deploy/*"
 
+      # Upload ONLY deploy folder
       - name: Upload zip
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -23,9 +29,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: ./
-          include: site.zip
+          local-dir: ./deploy/
           server-dir: /309aircadets.co.uk/htdocs/
+          dangerous-clean-slate: false
 
+      # Extract on server
       - name: Trigger deploy
         run: curl https://309aircadets.co.uk/deploy.php
