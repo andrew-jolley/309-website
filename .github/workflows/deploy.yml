@@ -10,28 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Upload everything to root
-      - name: Upload repository
+      - name: Create zip
+        run: zip -r site.zip . -x "*.git*"
+
+      - name: Upload zip
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-            server: ${{ secrets.FTP_SERVER }}
-            username: ${{ secrets.FTP_USERNAME }}
-            password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./
+          include: site.zip
+          server-dir: /309aircadets.co.uk/htdocs/
 
-            protocol: ftps
-            port: 21
-            security: strict
-
-            local-dir: ./
-            server-dir: /309aircadets.co.uk/htdocs/
-
-            dangerous-clean-slate: true
-            log-level: verbose
-
-            exclude: |
-                **/.git*
-                **/.git*/**
-                **/node_modules/**
+      - name: Trigger deploy
+        run: curl https://309aircadets.co.uk/deploy.php
