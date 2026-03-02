@@ -1,0 +1,47 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    overflow: auto;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    border: 1px solid #dee2e6;
+}
+
+.calendar div {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    position: relative;
+    min-height: 100px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar div span {
+    margin-bottom: 10px; /* Adds space between the date and the event box */
+    font-size: 1.2em;
+}
+
+.calendar div:hover {
+    background-color: #f1f1f1;
+}
+
+.event {
+    background-color: #007bff;  /* Strong blue background */
+    color: #000000;  /* White text for contrast */
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-top: 10px; /* Adds space between the date and the event box */
+    z-index: 10;
+    opacity: 1; /* Ensure full visibility */
+}

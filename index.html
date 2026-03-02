@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>309 (Sawbridgeworth) Squadron - Royal Air Force Air Cadets</title>
+<meta name="description" content="309 (Sawbridgeworth) Squadron Air Cadets - Providing activities, leadership, and skills for young people aged 12-20 in Sawbridgeworth.">
+<link rel="icon" type="image/x-icon" href="./assets/img/crest.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PK7SXWRW');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Tailwind CSS (with Cloudflare fix) -->
+<script src="https://cdn.tailwindcss.com" data-cfasync="false"></script>
+<script data-cfasync="false">
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          'raf-blue': '#4D45AF',
+          'raf-light-blue': '#73DAFA',
+        }
+      },
+    },
+  }
+</script>
+
+<!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/ac15eac2d6.js" crossorigin="anonymous"></script>
+
+<style>
+  /* Custom styles that are easier here than inline Tailwind for complex things */
+  
+  /* The specific gradient overlay for the hero image to ensure text readability */
+  .hero-overlay {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* This creates a purple gradient over whatever image loads */
+    background-image: linear-gradient(135deg, rgba(77, 69, 175, 0.95) 0%, rgba(58, 52, 143, 0.85) 100%);
+  }
+  
+  /* Hide scrollbar for gallery but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Cursor for draggable area */
+  .grab-cursor {
+    cursor: grab;
+  }
+  .grab-cursor:active {
+    cursor: grabbing;
+  }
+</style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK7SXWRW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- 
+    HEADER SECTION 
+  -->
+  <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+      
+      <!-- Logo -->
+      <div class="flex lg:flex-1">
+        <a href="/" class="-m-1.5 p-1.5 flex items-center space-x-3">
+          <img class="h-12 w-auto" src="./assets/img/crest.png" alt="309 Squadron Crest">
+          <!-- UPDATED HEADER TEXT -->
+          <span class="hidden font-bold text-slate-900 sm:block">309 (Sawbridgeworth) Squadron RAFAC</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex lg:gap-x-8">
+        <a href="#about" class="text-sm font-semibold leading-6 text-slate-900 hover:text-raf-blue">About Us</a>
+        <a href="#gallery" class="text-sm font-semibold leading-6 text-slate-900 hover:text-raf-blue">Gallery</a>
+        <a href="#joinUs" class="text-sm font-semibold leading-6 text-slate-900 hover:text-raf-blue">Join Us</a>
+        <a href="#findUs" class="text-sm font-semibold leading-6 text-slate-900 hover:text-raf-blue">Find Us</a>
+      </div>
+
+      <!-- Right Side: Socials & Login (Desktop only) -->
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-6">
+        <!-- Social Icons -->
+        <div class="flex gap-x-4 border-r border-slate-200 pr-6">
+          <a href="https://www.facebook.com/309ATC" target="_blank" class="text-slate-400 hover:text-[#1877F2]" aria-label="Facebook">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </a>
+          <a href="https://www.instagram.com/309aircadets" target="_blank" class="text-slate-400 hover:text-[#E4405F]" aria-label="Instagram">
+            <i class="fa-brands fa-instagram fa-lg"></i>
+          </a>
+        </div>
+        <!-- Login Button -->
+        <a href="https://portal.309aircadets.co.uk" class="ml-3 rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Login
+        </a>
+      </div><!-- end desktop right side -->
+
+      <!-- Mobile menu button (visible below lg) -->
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700" id="mobile-menu-open-btn" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="hidden lg:hidden" role="dialog" aria-modal="true" id="mobile-menu">
+      <div class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" id="mobile-backdrop"></div>
+      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-900/10">
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">309 Squadron</span>
+            <img class="h-8 w-auto" src="./assets/img/crest.png" alt="">
+          </a>
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-slate-700" id="mobile-menu-close-btn">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-slate-500/10">
+            <div class="space-y-2 py-6">
+              <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 hover:bg-slate-50">About Us</a>
+              <a href="#joinUs" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 hover:bg-slate-50">Join Us</a>
+              <a href="#gallery" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 hover:bg-slate-50">Gallery</a>
+              <a href="#findUs" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 hover:bg-slate-50">Find Us</a>
+            </div>
+            <div class="py-6">
+               <a href="https://portal.309aircadets.co.uk" class="flex items-center justify-center rounded-md bg-raf-blue px-3 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500">
+                 Login
+               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 
+      HERO SECTION (Updated with ID for random image and shorter height)
+    -->
+    <div id="hero-section" class="hero-overlay relative isolate overflow-hidden py-16 sm:py-20 transition-all duration-1000">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+          <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">309 (Sawbridgeworth) Squadron</h1>
+          <p class="mt-6 text-lg leading-8 text-slate-100">
+            Welcome to the Royal Air Force Air Cadets in Sawbridgeworth. We provide a wide range of activities for young people aged 12-20, helping them develop leadership, teamwork, and skills for life.
+          </p>
+          <div class="mt-10 flex items-center gap-x-6">
+            <a href="#joinUs" class="rounded-md bg-raf-light-blue px-3.5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-sky-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-light-blue">
+              Join Us Today <span aria-hidden="true">→</span>
+            </a>
+            <a href="#about" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      ALERT SECTION 
+    -->
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 pt-6 pb-0"> <div class="rounded-lg bg-green-100 p-5 border-l-[10px] border-green-600 shadow-xl"> <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-6 w-6 text-green-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-4"> <h3 class="text-base font-bold text-green-900">Looking to Join?</h3> <div class="mt-2 text-sm text-green-800"> <p>Our next open event will be in the <strong>Spring of 2026</strong>. If you would like to be part of our squadron, please fill out our joining forms <a href="#joinUs" class="font-medium underline hover:text-green-900">below</a> and we'll add you to our waiting list.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      ABOUT US SECTION 
+    -->
+    <section id="about" class="pt-8 pb-16 sm:pt-12 sm:pb-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+          <h2 class="text-base font-semibold leading-7 text-raf-blue">About Us</h2>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">More than just flying</p>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            We are a small but active squadron serving the local area. We can regularly be spotted leading parades in town with our Marching Band.
+          </p>
+        </div>
+        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            <div class="flex flex-col">
+              <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-slate-900">
+                <div class="h-10 w-10 flex items-center justify-center rounded-lg bg-raf-blue">
+                   <i class="fa-solid fa-graduation-cap text-white"></i>
+                </div>
+                Qualifications
+              </dt>
+              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+                <p class="flex-auto">Our instructors are qualified to teach Aerospace, Leadership, First Aid, and Drone flying. We also lead external qualifications like the Duke of Edinburgh’s Award.</p>
+              </dd>
+            </div>
+            <div class="flex flex-col">
+              <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-slate-900">
+                <div class="h-10 w-10 flex items-center justify-center rounded-lg bg-raf-blue">
+                  <i class="fa-solid fa-medal text-white"></i>
+                </div>
+                Achievements
+              </dt>
+              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+                <p class="flex-auto">We push towards Wing, Region, and National awards. Recently, our own Cadet Warrant Officer received the Dacre Sword, presented annually to the top All-round Cadet in the UK.</p>
+              </dd>
+            </div>
+             <div class="flex flex-col">
+              <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-slate-900">
+                <div class="h-10 w-10 flex items-center justify-center rounded-lg bg-raf-blue">
+                  <i class="fa-solid fa-rocket text-white"></i>
+                </div>
+                Future Careers
+              </dt>
+              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+                <p class="flex-auto">Great for those interested in the Armed Forces, but also builds skills for all careers. Former cadets have moved into Engineering, Finance, Medicine, and Broadcasting.</p>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      GALLERY CAROUSEL (Now with drag support)
+    -->
+    <section id="gallery" class="bg-slate-900 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center mb-12">
+          <h2 class="text-base font-semibold leading-7 text-raf-light-blue">Gallery</h2>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">See what we do</p>
+        </div>
+        
+        <div class="relative">
+           <div id="gallery-scroll-container" class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar grab-cursor select-none scroll-smooth">
+             <img src="./assets/img/dacre.jpeg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="Dacre Sword Presentation">
+             <img src="./assets/img/dofe.jpg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="Duke of Edinburgh Expedition">
+             <img src="./assets/img/flying.jpg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="Cadet Flying">
+             <img src="./assets/img/gliding.jpeg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="Gliding">
+             <img src="./assets/img/hgpd.jpg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="Honor Guard">
+             <img src="./assets/img/nasc.jpg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="National Air and Space Camp">
+             <img src="./assets/img/raes.jpg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="RAeS Event">
+             <img src="./assets/img/sport.jpg" draggable="false" class="snap-center shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[50%] rounded-2xl shadow-2xl draggable" alt="Sports">
+           </div>
+           <p class="text-center text-slate-400 text-sm mt-4">Drag or swipe to see more photos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      JOIN US SECTION 
+    -->
+    <section id="joinUs" class="py-16 sm:py-24 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Join the Squadron</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            Whether you want to be a cadet, a uniformed volunteer, or help behind the scenes, there's a place for you at 309.
+          </p>
+        </div>
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+          
+          <div class="flex flex-col rounded-2xl bg-white shadow-xl ring-1 ring-gray-900/10">
+            <div class="p-8 sm:p-10">
+              <h3 class="text-2xl font-bold tracking-tight text-slate-900">Join as a Cadet</h3>
+              <p class="mt-6 text-base leading-7 text-slate-600">
+                Enjoy oppurtunities and experiences that people can usually only dream of.
+              </p>
+              <div class="mt-8 flex items-center gap-x-4">
+                <h4 class="flex-none text-sm font-semibold leading-6 text-raf-blue">Requirements</h4>
+                <div class="h-px flex-auto bg-gray-100"></div>
+              </div>
+              <ul role="list" class="mt-4 grid grid-cols-1 gap-4 text-sm leading-6 text-slate-600">
+                <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-raf-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Aged 12+ (Year 8)</li>
+                 <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-raf-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Enthusiasm to learn</li>
+              </ul>
+            </div>
+            <div class="mt-auto p-8 pt-0 sm:p-10 sm:pt-0">
+               <button type="button" data-modal-target="cadet-modal" class="block w-full rounded-md bg-raf-blue px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Apply Now</button>
+            </div>
+          </div>
+
+          <div class="flex flex-col rounded-2xl bg-white shadow-xl ring-1 ring-gray-900/10">
+            <div class="p-8 sm:p-10">
+              <h3 class="text-2xl font-bold tracking-tight text-slate-900">Join as Adult Staff</h3>
+              <p class="mt-6 text-base leading-7 text-slate-600">
+                Adult Volunteers are our lifeblood. Join as a Civilian Instructor, or in a uniformed role as an SNCO or Officer.
+              </p>
+              <div class="mt-8 flex items-center gap-x-4">
+                <h4 class="flex-none text-sm font-semibold leading-6 text-raf-blue">Requirements</h4>
+                <div class="h-px flex-auto bg-gray-100"></div>
+              </div>
+              <ul role="list" class="mt-4 grid grid-cols-1 gap-4 text-sm leading-6 text-slate-600">
+                <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-raf-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Aged 20+</li>
+                <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-raf-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> DBS Check Required</li>
+              </ul>
+            </div>
+             <div class="mt-auto p-8 pt-0 sm:p-10 sm:pt-0">
+               <button type="button" data-modal-target="staff-modal" class="block w-full rounded-md bg-raf-blue px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Apply Now</button>
+            </div>
+          </div>
+          
+           <div class="flex flex-col rounded-2xl bg-white shadow-xl ring-1 ring-gray-900/10">
+            <div class="p-8 sm:p-10">
+              <h3 class="text-2xl font-bold tracking-tight text-slate-900">Civilian Committee</h3>
+              <p class="mt-6 text-base leading-7 text-slate-600">
+                Support us behind the scenes. This role involves monthly meetings and helping at events throughout the year.
+              </p>
+              <div class="mt-8 flex items-center gap-x-4">
+                <h4 class="flex-none text-sm font-semibold leading-6 text-raf-blue">Requirements</h4>
+                <div class="h-px flex-auto bg-gray-100"></div>
+              </div>
+              <ul role="list" class="mt-4 grid grid-cols-1 gap-4 text-sm leading-6 text-slate-600">
+                <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-raf-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Willingness to help</li>
+                <li class="flex gap-x-3"><svg class="h-6 w-5 flex-none text-raf-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> DBS Check Required</li>
+              </ul>
+            </div>
+             <div class="mt-auto p-8 pt-0 sm:p-10 sm:pt-0">
+               <button type="button" data-modal-target="committee-modal" class="block w-full rounded-md bg-raf-blue px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Apply Now</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      FIND US / MAP SECTION 
+    -->
+    <section id="findUs" class="py-16 sm:py-24">
+       <div class="mx-auto max-w-7xl px-6 lg:px-8">
+         <div class="mx-auto max-w-2xl lg:text-center mb-12">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Find Us</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            We are located in Sawbridgeworth. Come visit us on a parade night!
+          </p>
+        </div>
+        <div class="relative overflow-hidden rounded-2xl shadow-xl bg-slate-100 min-h-[450px]">
+          
+          <!-- Fallback Message (Displays if map doesn't load) -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-slate-400 mb-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">Map Unavailable</h3>
+            <p class="text-slate-500 max-w-md">
+              Google Maps content is blocked. Please check your browser's cookie settings or disable content blockers to view the map.
+            </p>
+          </div>
+
+          <!-- Map Iframe -->
+          <iframe 
+            class="relative z-10 w-full h-[450px] bg-white transition-opacity duration-300"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.391029164116!2d0.14721407665346362!3d51.817286971885515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d89afba6e50321%3A0xdc74cfbbad99b977!2s309%20(Sawbridgeworth)%20Squadron%20Air%20Cadets!5e0!3m2!1sen!2suk!4v1727285566376!5m2!1sen!2suk"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+       </div>
+    </section>
+<div id="cadet-modal" class="modal-container opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out">
+  <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative transition-all duration-300 ease-out opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto">
+    <button type="button" class="modal-close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <span class="sr-only">Close modal</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    
+    <h3 class="text-2xl font-bold text-slate-900">Join as a Cadet</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      Please provide your details below to start your application.
+      <br><strong>Minimum age:</strong> 12 (and in Year 8).
+    </p>
+
+    <form action="https://formspree.io/f/xwpakqbv" method="POST" class="mt-6 space-y-4">
+      <input type="text" name="_honey" style="display:none">
+      
+      <input type="hidden" name="form_type" value="Cadet Application">
+
+      <!-- Cadet Details -->
+      <h4 class="font-semibold text-slate-900 border-b pb-1">Cadet Details</h4>
+      <div>
+        <label for="cadet-name" class="block text-sm font-medium leading-6 text-slate-900">Cadet Full Name</label>
+        <div class="mt-2">
+          <input type="text" name="cadet_name" id="cadet-name" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label for="cadet-dob" class="block text-sm font-medium leading-6 text-slate-900">Date of Birth</label>
+          <div class="mt-2">
+            <input type="date" name="cadet_dob" id="cadet-dob" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div>
+          <label for="cadet-school-year" class="block text-sm font-medium leading-6 text-slate-900">School Year</label>
+          <div class="mt-2">
+            <input type="text" name="cadet_school_year" id="cadet-school-year" required placeholder="e.g. Year 8" class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+          </div>
+        </div>
+      </div>
+
+      <!-- Parent Details -->
+      <h4 class="font-semibold text-slate-900 border-b pb-1 pt-2">Parent/Guardian Details</h4>
+      <div>
+        <label for="parent-name" class="block text-sm font-medium leading-6 text-slate-900">Parent Full Name</label>
+        <div class="mt-2">
+          <input type="text" name="parent_name" id="parent-name" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="parent-email" class="block text-sm font-medium leading-6 text-slate-900">Parent Email Address</label>
+        <div class="mt-2">
+          <input type="email" name="parent_email" id="parent-email" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="parent-phone" class="block text-sm font-medium leading-6 text-slate-900">Parent Phone Number</label>
+        <div class="mt-2">
+          <input type="tel" name="parent_phone" id="parent-phone" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <button type="submit" class="w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Submit Enquiry</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="staff-modal" class="modal-container opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out">
+  <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative transition-all duration-300 ease-out opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto">
+    <button type="button" class="modal-close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <span class="sr-only">Close modal</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    
+    <h3 class="text-2xl font-bold text-slate-900">Join as Adult Staff</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      Please provide your details to learn more about volunteering.
+      <br><strong>Minimum age:</strong> 20.
+    </p>
+
+    <form action="https://formspree.io/f/xkgknzbn" method="POST" class="mt-6 space-y-4">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="form_type" value="Staff Application">
+      
+      <!-- Personal Details -->
+      <div>
+        <label for="staff-name" class="block text-sm font-medium leading-6 text-slate-900">Full Name</label>
+        <div class="mt-2">
+          <input type="text" name="name" id="staff-name" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label for="staff-dob" class="block text-sm font-medium leading-6 text-slate-900">Date of Birth</label>
+          <div class="mt-2">
+            <input type="date" name="dob" id="staff-dob" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        <div>
+          <label for="staff-postcode" class="block text-sm font-medium leading-6 text-slate-900">Postcode</label>
+          <div class="mt-2">
+            <input type="text" name="postcode" id="staff-postcode" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="staff-email" class="block text-sm font-medium leading-6 text-slate-900">Email Address</label>
+        <div class="mt-2">
+          <input type="email" name="email" id="staff-email" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="staff-phone" class="block text-sm font-medium leading-6 text-slate-900">Phone Number</label>
+        <div class="mt-2">
+          <input type="tel" name="phone" id="staff-phone" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <!-- Experience & Needs -->
+      <div>
+        <label for="staff-experience" class="block text-sm font-medium leading-6 text-slate-900">Previous Armed Forces / Cadet Experience</label>
+        <div class="mt-2">
+          <textarea name="experience" id="staff-experience" rows="3" class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6" placeholder="Please list any relevant experience..."></textarea>
+        </div>
+      </div>
+      <div>
+        <label for="staff-needs" class="block text-sm font-medium leading-6 text-slate-900">Additional Needs for Interview</label>
+        <div class="mt-2">
+          <textarea name="additional_needs" id="staff-needs" rows="2" class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6" placeholder="Any adjustments required?"></textarea>
+        </div>
+      </div>
+
+      <!-- DBS Confirmation -->
+      <div class="relative flex gap-x-3">
+        <div class="flex h-6 items-center">
+          <input id="staff-dbs" name="dbs_consent" type="checkbox" required class="h-4 w-4 rounded border-slate-300 text-raf-blue focus:ring-raf-blue">
+        </div>
+        <div class="text-sm leading-6">
+          <label for="staff-dbs" class="font-medium text-slate-900">DBS Check Consent</label>
+          <p class="text-slate-500">I understand that a DBS check will be undertaken and confirm I am not barred from working with children or vulnerable people.</p>
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <button type="submit" class="w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Submit Enquiry</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="committee-modal" class="modal-container opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out">
+  <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative transition-all duration-300 ease-out opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto">
+    <button type="button" class="modal-close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <span class="sr-only">Close modal</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    
+    <h3 class="text-2xl font-bold text-slate-900">Join the Civilian Committee</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      Please provide your details to learn more about supporting us.
+      <br><strong>Minimum age:</strong> 18 (for this role).
+    </p>
+
+    <form action="https://formspree.io/f/mqawklpg" method="POST" class="mt-6 space-y-4">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="form_type" value="Committee Application">
+      <div>
+        <label for="committee-name" class="block text-sm font-medium leading-6 text-slate-900">Full Name</label>
+        <div class="mt-2">
+          <input type="text" name="name" id="committee-name" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="committee-email" class="block text-sm font-medium leading-6 text-slate-900">Email Address</label>
+        <div class="mt-2">
+          <input type="email" name="email" id="committee-email" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="committee-phone" class="block text-sm font-medium leading-6 text-slate-900">Phone Number</label>
+        <div class="mt-2">
+          <input type="tel" name="phone" id="committee-phone" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div class="pt-2">
+        <button type="submit" class="w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Submit Enquiry</button>
+      </div>
+    </form>
+  </div>
+</div>
+  </main>
+
+  <!-- 
+    FOOTER 
+  -->
+  <footer class="bg-raf-blue py-8 text-center text-white">
+    <p class="text-sm">
+      <strong>Copyright © 2024-<span id="currentYear"></span></strong> 
+      <br class="sm:hidden">
+      <i id="version-info">309 Air Cadets</i> (All Rights Reserved)
+    </p>
+    <p class="text-xs mt-4 text-slate-300">
+      <a href="/privacy-policy.html" class="hover:text-white underline">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <!-- 
+    SCRIPTS 
+  -->
+  <script>
+    // --- NEW: FOOTER SCRIPT (Copyright & Build Version) ---
+
+// SET YOUR VERSION NUMBER HERE
+const APP_VERSION = 38; // Change this to 2, 3, etc. for new builds
+
+try {
+  // 1. Set Copyright Year
+  const year = new Date().getFullYear();
+  document.getElementById('currentYear').textContent = year;
+
+  // 2. Set Build Number
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, '0'); // MM
+  const day = String(today.getDate()).padStart(2, '0'); // DD
+
+  const dateString = `${year}${month}${day}`;
+  const buildNumber = `${dateString}.${APP_VERSION}`;
+
+  // 3. Update the footer text
+  const versionElement = document.getElementById('version-info');
+  if (versionElement) {
+    versionElement.textContent = `309 Air Cadets - Version ${buildNumber}`;
+  }
+
+} catch (error) {
+  console.error("Failed to update footer script:", error);
+}
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-open-btn');
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileBackdrop = document.getElementById('mobile-backdrop');
+
+    // Explicit open/close for reliability across devices
+    function openMobileMenu() {
+      if (!mobileMenu) return;
+      if (!mobileMenu.classList.contains('hidden')) return; // already open
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('block'); // ensure display
+      mobileMenu.setAttribute('data-state', 'open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden'); // prevent background scroll while open
+    }
+    function closeMobileMenu() {
+      if (!mobileMenu) return;
+      if (mobileMenu.classList.contains('hidden')) return; // already closed
+      mobileMenu.classList.remove('block');
+      mobileMenu.classList.add('hidden');
+      mobileMenu.setAttribute('data-state', 'closed');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
+    mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+    // Close mobile menu and perform smooth scroll with offset on anchor taps/clicks
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+    const headerEl = document.querySelector('header');
+    function handleMobileLinkActivate(e, link) {
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        closeMobileMenu();
+        const headerOffset = headerEl ? headerEl.offsetHeight : 0;
+        const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset - 4; // slight extra spacing
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    }
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', (e) => handleMobileLinkActivate(e, link));
+      link.addEventListener('touchend', (e) => handleMobileLinkActivate(e, link), { passive: false });
+      link.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { handleMobileLinkActivate(e, link); } });
+    });
+
+    // --- NEW: RANDOM HERO IMAGE (Updated) ---
+    const heroImages = [
+      './assets/img/dacre.jpeg',
+      './assets/img/dofe.jpg',
+      './assets/img/flying.jpg',
+      './assets/img/gliding.jpeg',
+      './assets/img/hgpd.jpg',
+      './assets/img/nasc.jpg',
+      './assets/img/raes.jpg',
+      './assets/img/sport.jpg'
+    ];
+
+    function setRandomHeroImage() {
+      const heroSection = document.getElementById('hero-section');
+      const randomImage = heroImages[Math.floor(Math.random() * heroImages.length)];
+      heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(77, 69, 175, 0.95) 0%, rgba(58, 52, 143, 0.85) 100%), url('${randomImage}')`;
+    }
+
+    // Run on page load
+    setRandomHeroImage();
+
+
+    // --- NEW: DRAGGABLE GALLERY SLIDER (Updated for smoothness) ---
+    const slider = document.getElementById('gallery-scroll-container');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      // Prevent browser's default drag behavior
+      e.preventDefault(); 
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault(); // Prevent text selection
+      const x = e.pageX - slider.offsetLeft;
+      // Removed the "* 2" for a 1:1 smooth scroll
+      const walk = (x - startX); 
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+// --- NEW: MODAL LOGIC (with Animation) ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const openModalButtons = document.querySelectorAll('[data-modal-target]');
+      const closeModalButtons = document.querySelectorAll('.modal-close-btn');
+      const modalContainers = document.querySelectorAll('.modal-container');
+
+      // Function to open a modal
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+        const modalContent = modal.querySelector('.modal-content');
+
+        // Show the backdrop
+        modal.classList.remove('invisible', 'opacity-0');
+        
+        // Show the content (with a slight delay for the animation)
+        setTimeout(() => {
+          modalContent.classList.remove('opacity-0', 'translate-y-4');
+        }, 20); // 20ms is enough for the browser to register the change
+      }
+
+      // Function to close a modal
+      function closeModal(modal) {
+        if (!modal) return;
+        const modalContent = modal.querySelector('.modal-content');
+
+        // Animate out the content
+        modalContent.classList.add('opacity-0', 'translate-y-4');
+        
+        // Animate out the backdrop
+        modal.classList.add('opacity-0');
+
+        // After animation, hide it completely for accessibility
+        setTimeout(() => {
+          modal.classList.add('invisible');
+        }, 300); // Must match the transition duration
+      }
+
+      // Add click listener to all open buttons
+      openModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const modalId = button.getAttribute('data-modal-target');
+          openModal(modalId);
+        });
+      });
+
+      // Add click listener to all close buttons
+      closeModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const modal = button.closest('.modal-container');
+          closeModal(modal);
+        });
+      });
+
+      // Add click listener to all modal backdrops
+      modalContainers.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeModal(modal);
+          }
+        });
+      });
+    });
+
+  </script>
+
+  <!-- Privacy Policy Toast -->
+  <div id="privacy-toast" class="fixed bottom-4 right-4 z-[9999] hidden max-w-sm rounded-lg border border-slate-200 bg-white p-4 shadow-xl transition-all duration-500 translate-y-10 opacity-0 transform">
+    <div class="flex items-start gap-4">
+      <div class="text-raf-blue pt-0.5">
+        <i class="fa-solid fa-shield-halved fa-lg"></i>
+      </div>
+      <div class="flex-1">
+        <h3 class="text-sm font-semibold text-slate-900">Privacy Policy Update</h3>
+        <p class="mt-1 text-sm text-slate-600">We have updated our <a href="./privacy-policy.html" class="font-medium text-raf-blue hover:underline">Privacy Policy</a>. Please take a moment to review the changes.</p>
+        <button id="dismiss-privacy-toast" class="mt-3 text-xs font-semibold text-slate-500 hover:text-slate-800 underline decoration-slate-300 underline-offset-2">Dismiss</button>
+      </div>
+      <button id="close-privacy-toast" class="text-slate-400 hover:text-slate-600 p-1">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const privacyToast = document.getElementById('privacy-toast');
+      const dismissBtn = document.getElementById('dismiss-privacy-toast');
+      const closeBtn = document.getElementById('close-privacy-toast');
+      
+      if (!privacyToast) return;
+
+      // 1. Check if user has dismissed it already
+      const hasDismissed = localStorage.getItem('privacy-toast-dismissed-2026-02');
+      
+      // 2. Check current date vs expiry date (1 week from Feb 15, 2026 -> Feb 22, 2026)
+      const now = new Date();
+      const expiryDate = new Date('2026-02-23T00:00:00'); // Midnight after the week
+      
+      const shouldShow = !hasDismissed && (now < expiryDate);
+
+      if (shouldShow) {
+        // Remove hidden class to make it render
+        privacyToast.classList.remove('hidden');
+        
+        // Small timeout to allow transition
+        setTimeout(() => {
+          privacyToast.classList.remove('translate-y-10', 'opacity-0');
+        }, 100);
+      }
+
+      function hideToast() {
+        privacyToast.classList.add('translate-y-10', 'opacity-0');
+        setTimeout(() => {
+          privacyToast.classList.add('hidden');
+        }, 500);
+        // Mark as dismissed
+        localStorage.setItem('privacy-toast-dismissed-2026-02', 'true');
+      }
+
+      if (dismissBtn) dismissBtn.addEventListener('click', hideToast);
+      if (closeBtn) closeBtn.addEventListener('click', hideToast);
+    });
+  </script>
+
+  <!-- Firebase Analytics (Original Script) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyAG6rz-SY7uUDEL_INDJ6GNXEyKsbetkHI",
+        authDomain: "air-cadets-4dbde.firebaseapp.com",
+        projectId: "air-cadets-4dbde",
+        storageBucket: "air-cadets-4dbde.appspot.com",
+        messagingSenderId: "713823096477",
+        appId: "1:713823096477:web:ee98fa0327c83e843d4e74",
+        measurementId: "G-58YTW53MQY"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>
