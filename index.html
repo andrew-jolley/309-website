@@ -609,13 +609,8 @@ try {
   const year = new Date().getFullYear();
   document.getElementById('currentYear').textContent = year;
 
-  // 2. Set Build Number
-  const today = new Date();
-  const month = String(today.getMonth() + 1).padStart(2, '0'); // MM
-  const day = String(today.getDate()).padStart(2, '0'); // DD
-
-  const dateString = `${year}${month}${day}`;
-  const buildNumber = `${dateString}.${APP_VERSION}`;
+  // 2. Build date is injected at deploy time by GitHub Actions (see deploy.yml)
+  const buildNumber = `__BUILD_DATE__.${APP_VERSION}`;
 
   // 3. Update the footer text
   const versionElement = document.getElementById('version-info');

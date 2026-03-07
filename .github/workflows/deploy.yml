@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Inject build date into version string
+      - name: Set build date
+        run: sed -i "s/__BUILD_DATE__/$(date +'%Y%m%d')/g" index.html
+
       # Create zip
       - name: Create zip
         run: |
