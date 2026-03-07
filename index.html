@@ -601,16 +601,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script>
     // --- NEW: FOOTER SCRIPT (Copyright & Build Version) ---
 
-// SET YOUR VERSION NUMBER HERE
-const APP_VERSION = 38; // Change this to 2, 3, etc. for new builds
-
 try {
   // 1. Set Copyright Year
   const year = new Date().getFullYear();
   document.getElementById('currentYear').textContent = year;
 
-  // 2. Build date is injected at deploy time by GitHub Actions (see deploy.yml)
-  const buildNumber = `__BUILD_DATE__.${APP_VERSION}`;
+  // 2. Build date and number are injected at deploy time by GitHub Actions (see deploy.yml)
+  const buildNumber = `__BUILD_DATE__.__BUILD_NUMBER__`;
 
   // 3. Update the footer text
   const versionElement = document.getElementById('version-info');
