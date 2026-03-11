@@ -127,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p class="mb-4">We collect information in the following ways:</p>
         <ul class="list-disc pl-5 space-y-2 mb-6">
           <li><strong>Voluntary Information:</strong> Personal details you provide when submitting enquiry forms (such as Name, Email Address, and Phone Number) for the purpose of joining as a cadet, staff member, or committee member.</li>
-          <li><strong>Automated Information:</strong> Anonymous usage data collected via cookies and analytics tools (Google Analytics, Firebase, Microsoft Clarity) to help us understand website traffic and performance.</li>
+          <li><strong>Automated Information:</strong> Anonymous usage data collected via cookies and analytics tools (Google Analytics, Firebase, PostHog) to help us understand website traffic, performance, and user journeys.</li>
           <li><strong>Authentication Data:</strong> If you are a member of staff or a cadet logging into our internal portals or mobile applications, we process your login credentials via Microsoft Entra ID.</li>
           <li><strong>Device Management Data:</strong> If you enroll a device in our management system (Action1), we collect device identifiers and compliance status to ensure security.</li>
         </ul>
@@ -155,10 +155,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           For users of our official 309 Squadron Mobile Application or Web App: Authentication tokens are stored securely in your device's encrypted storage. If you choose to enable <strong>Face ID, Touch ID, or Biometric Unlock</strong>, this authentication is processed entirely locally by your device's native operating system. <strong>We do not collect, transmit, or have any access to your biometric data.</strong>
         </p>
 
-        <h3 class="font-semibold text-slate-900 mt-4">Microsoft Clarity & Google Analytics</h3>
+        <h3 class="font-semibold text-slate-900 mt-4">Google Analytics</h3>
         <p class="mb-4">
-          We use Microsoft Clarity and Google Analytics to capture anonymous usage statistics, session recordings, and heatmaps to improve our public website and internal portals. These tools are configured to mask sensitive information and keystrokes.
-          <br><a href="https://privacy.microsoft.com/en-gb/privacystatement" class="text-raf-blue hover:underline" target="_blank">Clarity Privacy Policy</a> | <a href="https://policies.google.com/privacy" class="text-raf-blue hover:underline" target="_blank">Google Privacy Policy</a>
+          We use Google Analytics to capture anonymous usage statistics, session recordings, and heatmaps to improve our public website and internal portals. These tools are configured to mask sensitive information and keystrokes.
+          <br><a href="https://policies.google.com/privacy" class="text-raf-blue hover:underline" target="_blank">Google Privacy Policy</a>
+        </p>
+
+        <h3 class="font-semibold text-slate-900 mt-4">PostHog (Analytics & Session Replay)</h3>
+        <p class="mb-4">
+          We use PostHog to understand how users interact with our website and internal portal. PostHog collects telemetry data such as page views, button clicks, and session replays (video recordings of your screen interactions) to help us identify bugs and improve the user experience. Passwords and highly sensitive input fields are automatically masked and never recorded. If you log into the secure portal, your session activity may be linked to your user profile to assist our staff with technical support.
+          <br><a href="https://posthog.com/privacy" class="text-raf-blue hover:underline" target="_blank">PostHog Privacy Policy</a>
         </p>
 
         <h3 class="font-semibold text-slate-900 mt-4">Action1 (Device Management)</h3>
