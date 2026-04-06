@@ -12,10 +12,6 @@ header('Content-Type: application/json');
 // CONFIGURATION
 // ==========================================
 
-// --- EMAIL ACCOUNT SETTINGS (Microsoft 365) ---
-$smtp_user = 'website@309aircadets.co.uk'; // e.g. website@309aircadets.co.uk
-$smtp_pass = '309_ATC!';
-
 // 1. Email Destinations: Map form_type to target email addresses
 // You can change these to different email addresses if needed.
 $recipients = [
@@ -161,15 +157,15 @@ $mail = new PHPMailer(true);
 try {
     // Server settings
     $mail->isSMTP();
-    $mail->Host       = 'smtp.office365.com';     // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                     // Enable SMTP authentication
-    $mail->Username   = $smtp_user;               // SMTP username
-    $mail->Password   = $smtp_pass;               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
-    $mail->Port       = 587;                      // TCP port to connect to
+    $mail->Host       = '309aircadets-co-uk.mail.protection.outlook.com'; // This routes directly to your Microsoft 365 tenant
+    $mail->SMTPAuth   = false;                    // No password needed for direct delivery
+    $mail->Username   = '';                       // Leave blank
+    $mail->Password   = '';                       // Leave blank
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Still encrypt the text being sent
+    $mail->Port       = 25;                       // Direct send uses port 25 (the standard mail port)
 
-    // Sender details
-    $mail->setFrom($smtp_user, '309 Air Cadets Website');
+    // Sender details - Make sure this is a valid email address inside your 365 organization
+    $mail->setFrom('website@309aircadets.co.uk', '309 Air Cadets Website');
     
     // Recipients
     $mail->addAddress($to);
