@@ -1,9 +1,20 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/Exception.php';
+require __DIR__ . '/PHPMailer/PHPMailer.php';
+require __DIR__ . '/PHPMailer/SMTP.php';
+
 header('Content-Type: application/json');
 
 // ==========================================
 // CONFIGURATION
 // ==========================================
+
+// --- EMAIL ACCOUNT SETTINGS (Microsoft 365) ---
+$smtp_user = 'website@309aircadets.co.uk'; // e.g. website@309aircadets.co.uk
+$smtp_pass = '309_ATC!';
 
 // 1. Email Destinations: Map form_type to target email addresses
 // You can change these to different email addresses if needed.
@@ -144,18 +155,40 @@ $message .= "</table>";
 $message .= "<p style='font-size: 12px; color: #64748b; margin-top: 20px;'>Submitted on: " . date('Y-m-d H:i:s') . "</p>";
 $message .= "</body></html>";
 
-$headers  = "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/html; charset=UTF-8\r\n";
-$headers .= "From: website@309aircadets.co.uk\r\n";
-if (!empty($submitting_email)) {
-    $headers .= "Reply-To: $submitting_email\r\n";
-}
+// 6. Send the Email using PHPMailer
+$mail = new PHPMailer(true);
 
-// 6. Send the Email
-if (mail($to, $subject, $message, $headers)) {
+try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.office365.com';     // Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                     // Enable SMTP authentication
+    $mail->Username   = $smtp_user;               // SMTP username
+    $mail->Password   = $smtp_pass;               // SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
+    $mail->Port       = 587;                      // TCP port to connect to
+
+    // Sender details
+    $mail->setFrom($smtp_user, '309 Air Cadets Website');
+    
+    // Recipients
+    $mail->addAddress($to);
+
+    // Reply-to (so if you hit Reply, it replies to the person who filled out the form)
+    if (!empty($submitting_email)) {
+        $mail->addReplyTo($submitting_email);
+    }
+
+    // Content
+    $mail->isHTML(true);                          // Set email format to HTML
+    $mail->Subject = $subject;
+    $mail->Body    = $message;
+
+    $mail->send();
     echo json_encode(['success' => true, 'message' => 'Thanks! Your application was submitted successfully.']);
-} else {
+} catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'There was a problem sending the email. Please try again.']);
+    // Logging the PHPMailer error here for debugging. You can remove $mail->ErrorInfo in production
+    echo json_encode(['success' => false, 'message' => 'There was a problem sending the email. Server Error: ' . $mail->ErrorInfo]);
 }
 ?>
