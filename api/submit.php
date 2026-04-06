@@ -107,20 +107,21 @@ if (!empty($data['parent_email'])) {
 }
 
 // 4. Blocklist Validation
+$is_blocked = false;
+$block_reason = '';
+
 if (!empty($submitting_email)) {
     // Check exact email blocklist
     if (in_array($submitting_email, array_map('strtolower', $blocked_emails))) {
-        // Return fake success to confuse spammer
-        echo json_encode(['success' => true, 'message' => 'Thanks! Your application was submitted.']);
-        exit;
+        $is_blocked = true;
+        $block_reason = "Email address ($submitting_email) is on the blocklist.";
     }
 
     // Check domain blocklist
     $domain = substr(strrchr($submitting_email, "@"), 1);
     if (in_array($domain, array_map('strtolower', $blocked_domains))) {
-        // Return fake success to confuse spammer
-        echo json_encode(['success' => true, 'message' => 'Thanks! Your application was submitted.']);
-        exit;
+        $is_blocked = true;
+        $block_reason = "Domain ($domain) is on the blocklist.";
     }
 }
 
@@ -129,7 +130,19 @@ $to = $recipients[$form_type] ?? $recipients['default'];
 $subject = "New Submission: $form_type";
 
 $message = "<html><body style='font-family: Arial, sans-serif;'>";
-$message .= "<h2 style='color: #4D45AF;'>New $form_type Submission</h2>";
+
+if ($is_blocked) {
+    $subject = "[BLOCKED] Attempted Submission: $form_type";
+    $message .= "<div style='background-color: #fee2e2; border-left: 4px solid #dc2626; padding: 12px; margin-bottom: 20px;'>";
+    $message .= "<h2 style='color: #991b1b; margin-top: 0;'>Blocked Form Submission Intercepted</h2>";
+    $message .= "<p style='color: #7f1d1d; margin-bottom: 0;'>A user attempted to submit a form, but they were flagged by your blocklist.</p>";
+    $message .= "<p style='color: #7f1d1d; margin-bottom: 0;'><strong>Reason:</strong> $block_reason</p>";
+    $message .= "</div>";
+    $message .= "<h3 style='color: #334155;'>Original Submitted Data:</h3>";
+} else {
+    $message .= "<h2 style='color: #4D45AF;'>New $form_type Submission</h2>";
+}
+
 $message .= "<table border='0' cellpadding='8' cellspacing='0' style='width: 100%; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 8px;'>";
 
 // Exclude internal keys
