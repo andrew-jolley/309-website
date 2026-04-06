@@ -23,8 +23,8 @@ $recipients = [
 
 // 2. Blocklist: Enter specific emails or domains to block submissions from
 $blocked_emails = [
-    'spammer@example.com',
-    'annoying@baddomain.com'
+    'littlemixwilson035@gmail.com',
+    'beckyhillwilson92@gmail.com'
 ];
 $blocked_domains = [
     'baddomain.com',
