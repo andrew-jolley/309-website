@@ -1003,11 +1003,11 @@ try {
       if (!privacyToast) return;
 
       // 1. Check if user has dismissed it already
-      const hasDismissed = localStorage.getItem('privacy-toast-dismissed-2026-02');
+      const hasDismissed = localStorage.getItem('privacy-toast-dismissed-2026-04');
       
-      // 2. Check current date vs expiry date (1 week from Feb 15, 2026 -> Feb 22, 2026)
+      // 2. Check current date vs expiry date (End of April 2026)
       const now = new Date();
-      const expiryDate = new Date('2026-02-23T00:00:00'); // Midnight after the week
+      const expiryDate = new Date('2026-04-30T23:59:59'); // Show until end of April 2026
       
       const shouldShow = !hasDismissed && (now < expiryDate);
 
@@ -1026,8 +1026,8 @@ try {
         setTimeout(() => {
           privacyToast.classList.add('hidden');
         }, 500);
-        // Mark as dismissed
-        localStorage.setItem('privacy-toast-dismissed-2026-02', 'true');
+        // Mark as dismissed for the April update
+        localStorage.setItem('privacy-toast-dismissed-2026-04', 'true');
       }
 
       if (dismissBtn) dismissBtn.addEventListener('click', hideToast);
