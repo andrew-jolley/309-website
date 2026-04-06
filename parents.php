@@ -21,8 +21,16 @@ if (file_exists($dataFile)) {
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Prevent Flash of Unstyled Content against Tailwind CDN */
+        html { visibility: hidden; }
         body { font-family: 'Inter', system-ui, sans-serif; }
     </style>
+    <script>
+        // Make visible once the elements and script are loaded
+        window.addEventListener('load', function() {
+            document.documentElement.style.visibility = 'visible';
+        });
+    </script>
 </head>
 <body class="bg-gray-50 text-gray-800 min-h-screen py-10 antialiased">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,9 +110,10 @@ if (file_exists($dataFile)) {
         </div>
         
         <!-- Footer -->
-        <div class="mt-12 text-center text-sm text-gray-400">
-            &copy; <?php echo date('Y'); ?> Squadron Information. All rights reserved.
-        </div>
+        <footer class="mt-12 text-center text-sm text-gray-500 py-8 border-t border-gray-200">
+            <p>&copy; <?php echo date('Y'); ?> Andrew Jolley & 309 Squadron. All rights reserved.</p>
+            <p class="mt-3"><a href="privacy-policy.html" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">Privacy Policy</a></p>
+        </footer>
     </div>
 </body>
 </html>

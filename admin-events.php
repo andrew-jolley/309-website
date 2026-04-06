@@ -81,6 +81,16 @@ if ($isLoggedIn && isset($_GET['delete'])) {
     <title>Admin - Manage Events</title>
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Prevent Flash of Unstyled Content against Tailwind CDN */
+        html { visibility: hidden; }
+    </style>
+    <script>
+        // Make visible once the elements and script are loaded
+        window.addEventListener('load', function() {
+            document.documentElement.style.visibility = 'visible';
+        });
+    </script>
 </head>
 <body class="bg-gray-100 p-8 font-sans">
 
@@ -182,6 +192,11 @@ if ($isLoggedIn && isset($_GET['delete'])) {
         </div>
     <?php endif; ?>
 </div>
+
+<footer class="mt-12 text-center text-sm text-gray-500 py-6 border-t border-gray-200 w-full max-w-4xl mx-auto">
+    <p>&copy; <?php echo date('Y'); ?> Andrew Jolley & 309 Squadron. All rights reserved.</p>
+    <p class="mt-2"><a href="privacy-policy.html" class="text-blue-600 hover:text-blue-800 hover:underline transition">Privacy Policy</a></p>
+</footer>
 
 </body>
 </html>
