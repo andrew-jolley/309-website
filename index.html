@@ -15,6 +15,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PK7SXWRW');</script>
 <!-- End Google Tag Manager -->
 
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <!-- Tailwind CSS (with Cloudflare fix) -->
 <script src="https://cdn.tailwindcss.com" data-cfasync="false"></script>
 <script data-cfasync="false">
@@ -398,7 +401,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <br><strong>Minimum age:</strong> 12 (and in Year 8).
     </p>
 
-    <form action="https://formspree.io/f/xwpakqbv" method="POST" class="mt-6 space-y-4">
+    <!-- Success Message Container (Hidden initially) -->
+    <div id="cadet-success" class="hidden mt-6 text-center py-8">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 mb-4">
+        <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">Application Received</h3>
+      <p class="mt-2 text-sm text-slate-600">Thank you for your interest! We'll be in touch shortly.</p>
+      <button type="button" class="mt-6 modal-close-btn w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">Close Window</button>
+    </div>
+
+    <!-- The Form -->
+    <form id="cadet-form" class="ajax-form mt-6 space-y-4" data-target="cadet">
       <input type="text" name="_honey" style="display:none">
       
       <input type="hidden" name="form_type" value="Cadet Application">
@@ -447,8 +463,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
 
+      <!-- Error Alert -->
+      <div id="cadet-error" class="hidden rounded-md bg-red-50 p-4 mt-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p id="cadet-error-text" class="text-sm font-medium text-red-800">There was a problem submitting your application.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turnstile CAPTCHA (Add your Cloudflare Site Key here) -->
+      <div class="cf-turnstile mt-4" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>
+
       <div class="pt-2">
-        <button type="submit" class="w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Submit Enquiry</button>
+        <button type="submit" id="cadet-submit-btn" class="flex w-full justify-center rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">
+          <span class="btn-text">Submit Enquiry</span>
+          <svg class="btn-spinner hidden ml-3 h-5 w-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        </button>
       </div>
     </form>
   </div>
@@ -467,7 +503,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <br><strong>Minimum age:</strong> 20.
     </p>
 
-    <form action="https://formspree.io/f/xkgknzbn" method="POST" class="mt-6 space-y-4">
+    <!-- Success Message Container (Hidden initially) -->
+    <div id="staff-success" class="hidden mt-6 text-center py-8">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 mb-4">
+        <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">Application Received</h3>
+      <p class="mt-2 text-sm text-slate-600">Thank you for your interest in volunteering! We will contact you soon.</p>
+      <button type="button" class="mt-6 modal-close-btn w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">Close Window</button>
+    </div>
+
+    <!-- The Form -->
+    <form id="staff-form" class="ajax-form mt-6 space-y-4" data-target="staff">
       <input type="text" name="_honey" style="display:none">
       <input type="hidden" name="form_type" value="Staff Application">
       
@@ -532,8 +581,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
 
+      <!-- Error Alert -->
+      <div id="staff-error" class="hidden rounded-md bg-red-50 p-4 mt-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p id="staff-error-text" class="text-sm font-medium text-red-800">There was a problem submitting your application.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turnstile CAPTCHA (Add your Cloudflare Site Key here) -->
+      <div class="cf-turnstile mt-4" data-sitekey="0x4AAAAAAC1XjyLGNmotH5nb" data-theme="light"></div>
+
       <div class="pt-2">
-        <button type="submit" class="w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Submit Enquiry</button>
+        <button type="submit" id="staff-submit-btn" class="flex w-full justify-center rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">
+          <span class="btn-text">Submit Enquiry</span>
+          <svg class="btn-spinner hidden ml-3 h-5 w-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        </button>
       </div>
     </form>
   </div>
@@ -552,7 +621,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <br><strong>Minimum age:</strong> 18 (for this role).
     </p>
 
-    <form action="https://formspree.io/f/mqawklpg" method="POST" class="mt-6 space-y-4">
+    <!-- Success Message Container (Hidden initially) -->
+    <div id="committee-success" class="hidden mt-6 text-center py-8">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 mb-4">
+        <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">Application Received</h3>
+      <p class="mt-2 text-sm text-slate-600">Thank you for your interest! The committee will be in contact soon.</p>
+      <button type="button" class="mt-6 modal-close-btn w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">Close Window</button>
+    </div>
+
+    <!-- The Form -->
+    <form id="committee-form" class="ajax-form mt-6 space-y-4" data-target="committee">
       <input type="text" name="_honey" style="display:none">
       <input type="hidden" name="form_type" value="Committee Application">
       <div>
@@ -573,8 +655,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <input type="tel" name="phone" id="committee-phone" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
         </div>
       </div>
+
+      <!-- Error Alert -->
+      <div id="committee-error" class="hidden rounded-md bg-red-50 p-4 mt-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p id="committee-error-text" class="text-sm font-medium text-red-800">There was a problem submitting your application.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turnstile CAPTCHA (Add your Cloudflare Site Key here) -->
+      <div class="cf-turnstile mt-4" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>
+
       <div class="pt-2">
-        <button type="submit" class="w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">Submit Enquiry</button>
+        <button type="submit" id="committee-submit-btn" class="flex w-full justify-center rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">
+          <span class="btn-text">Submit Enquiry</span>
+          <svg class="btn-spinner hidden ml-3 h-5 w-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        </button>
       </div>
     </form>
   </div>
@@ -758,6 +861,23 @@ try {
         // After animation, hide it completely for accessibility
         setTimeout(() => {
           modal.classList.add('invisible');
+          
+          // Reset form styling and content for next time
+          const form = modal.querySelector('.ajax-form');
+          if (form) {
+            form.reset();
+            form.classList.remove('hidden');
+            const h3 = modalContent.querySelector('h3');
+            const p = modalContent.querySelector('p');
+            if (h3) h3.classList.remove('hidden');
+            if (p) p.classList.remove('hidden');
+            
+            const successEl = modalContent.querySelector('[id$="-success"]');
+            if (successEl) successEl.classList.add('hidden');
+            
+            const errorEl = modalContent.querySelector('[id$="-error"]');
+            if (errorEl) errorEl.classList.add('hidden');
+          }
         }, 300); // Must match the transition duration
       }
 
@@ -782,6 +902,74 @@ try {
         modal.addEventListener('click', (e) => {
           if (e.target === modal) {
             closeModal(modal);
+          }
+        });
+      });
+
+      // --- AJ's CUSTOM PHP AJAX FORM HANDLER ---
+      const ajaxForms = document.querySelectorAll('.ajax-form');
+      ajaxForms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const targetPrefix = form.getAttribute('data-target'); // cadet, staff, or committee
+          const errorContainer = document.getElementById(`${targetPrefix}-error`);
+          const errorText = document.getElementById(`${targetPrefix}-error-text`);
+          const successContainer = document.getElementById(`${targetPrefix}-success`);
+          const submitBtn = document.getElementById(`${targetPrefix}-submit-btn`);
+          const btnText = submitBtn.querySelector('.btn-text');
+          const btnSpinner = submitBtn.querySelector('.btn-spinner');
+
+          // Reset UI
+          errorContainer.classList.add('hidden');
+          submitBtn.disabled = true;
+          btnText.textContent = "Submitting...";
+          btnSpinner.classList.remove('hidden');
+
+          // Serialize form payload to JSON
+          const formData = new FormData(form);
+          const dataObj = Object.fromEntries(formData.entries());
+
+          try {
+            const response = await fetch('./api/submit.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(dataObj)
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+              // Show Success UI and hide form
+              form.classList.add('hidden');
+              const modalContent = form.closest('.modal-content');
+              if (modalContent) {
+                const h3 = modalContent.querySelector('h3');
+                const p = modalContent.querySelector('p');
+                if (h3) h3.classList.add('hidden');
+                if (p) p.classList.add('hidden');
+              }
+
+              successContainer.classList.remove('hidden');
+              form.reset();
+              // Reset turnstile if exists
+              if (typeof turnstile !== 'undefined') turnstile.reset();
+            } else {
+              // Show error message
+              throw new Error(result.message || 'There was an issue processing your submission.');
+            }
+          } catch (err) {
+            errorText.textContent = err.message || 'Network error occurred. Please try again.';
+            errorContainer.classList.remove('hidden');
+            if (typeof turnstile !== 'undefined') turnstile.reset();
+          } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            btnText.textContent = "Submit Enquiry";
+            btnSpinner.classList.add('hidden');
           }
         });
       });
