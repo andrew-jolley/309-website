@@ -22,6 +22,13 @@ if (!is_array($events)) {
     $events = [];
 }
 
+// Ensure loaded events are sorted for display
+usort($events, function($a, $b) {
+    $dateA = isset($a['sort_date']) && $a['sort_date'] !== '' ? $a['sort_date'] : '9999-12-31';
+    $dateB = isset($b['sort_date']) && $b['sort_date'] !== '' ? $b['sort_date'] : '9999-12-31';
+    return strcmp($dateA, $dateB);
+});
+
 // Handle Login
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     if ($_POST['password'] === $adminPassword) {
@@ -47,11 +54,20 @@ if ($isLoggedIn && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_ev
         'id' => uniqid(),
         'name' => htmlspecialchars($_POST['name']),
         'dates' => htmlspecialchars($_POST['dates']),
+        'sort_date' => htmlspecialchars($_POST['sort_date'] ?? ''),
         'location' => htmlspecialchars($_POST['location']),
         'link' => htmlspecialchars($_POST['link'] ?? '')
     ];
     
     $events[] = $newEvent;
+    
+    // Sort events by date before saving
+    usort($events, function($a, $b) {
+        $dateA = isset($a['sort_date']) && $a['sort_date'] !== '' ? $a['sort_date'] : '9999-12-31';
+        $dateB = isset($b['sort_date']) && $b['sort_date'] !== '' ? $b['sort_date'] : '9999-12-31';
+        return strcmp($dateA, $dateB);
+    });
+
     file_put_contents($dataFile, json_encode($events, JSON_PRETTY_PRINT));
     $success = 'Event added successfully.';
 }
@@ -137,14 +153,18 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                     <input type="text" name="name" required placeholder="e.g. Navigation Training" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Dates *</label>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Display Dates *</label>
                     <input type="text" name="dates" required placeholder="e.g. 15-17 Oct 2026" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Start Date (For List Order) *</label>
+                    <input type="date" name="sort_date" required class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div>
                     <label class="block text-gray-700 text-sm font-bold mb-2">Location *</label>
                     <input type="text" name="location" required placeholder="e.g. Squadron HQ" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                <div>
+                <div class="md:col-span-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Cadet Portal Link (Optional)</label>
                     <input type="url" name="link" placeholder="https://cadetportal.example.com/..." class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
