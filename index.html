@@ -366,19 +366,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             We are located in Sawbridgeworth. Come visit us on a parade night!
           </p>
         </div>
-        <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-          <div class="space-y-6">
-            <div class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
+          <div class="space-y-6 lg:flex lg:h-full lg:flex-col">
+            <div class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200 lg:flex-1">
               <div class="inline-flex items-center rounded-full bg-raf-blue/10 px-3 py-1 text-sm font-semibold text-raf-blue">Parade Nights</div>
               <h3 class="mt-4 text-2xl font-bold tracking-tight text-slate-900">When to visit us</h3>
               <p class="mt-4 text-base leading-7 text-slate-600">Mondays &amp; Thursdays: 1900-2130</p>
               <p class="mt-3 text-base leading-7 text-slate-600">If you are visiting for the first time, please use the contact details below so we can help you get in touch with the right team.</p>
             </div>
 
-            <div class="rounded-2xl bg-slate-900 p-6 shadow-lg">
+            <div class="rounded-2xl bg-slate-900 p-6 shadow-lg lg:flex-1 lg:flex lg:flex-col">
               <h3 class="text-2xl font-bold tracking-tight text-white">Contact Us</h3>
               <p class="mt-3 text-base leading-7 text-slate-300">Choose the enquiry route that fits best and we’ll get it to the right inbox.</p>
-              <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 lg:flex-1 lg:content-start">
                 <button type="button" data-modal-target="general-enquiries-modal" class="inline-flex items-center justify-center rounded-md bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">General Enquiries</button>
                 <button type="button" data-modal-target="training-enquiries-modal" class="inline-flex items-center justify-center rounded-md bg-raf-light-blue px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-sky-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-light-blue">Visits / Training Enquiries</button>
               </div>
@@ -386,7 +386,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </div>
 
-          <div class="relative overflow-hidden rounded-2xl shadow-xl bg-slate-100 min-h-[450px]">
+          <div class="relative overflow-hidden rounded-2xl shadow-xl bg-slate-100 min-h-[380px] sm:min-h-[450px] lg:min-h-0 lg:h-full">
             
             <!-- Fallback Message (Displays if map doesn't load) -->
             <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-0">
@@ -401,7 +401,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <!-- Map Iframe -->
             <iframe 
-              class="relative z-10 w-full h-[450px] bg-white transition-opacity duration-300"
+              class="relative z-10 w-full h-[380px] sm:h-[450px] lg:h-full bg-white transition-opacity duration-300"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.391029164116!2d0.14721407665346362!3d51.817286971885515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d89afba6e50321%3A0xdc74cfbbad99b977!2s309%20(Sawbridgeworth)%20Squadron%20Air%20Cadets!5e0!3m2!1sen!2suk!4v1727285566376!5m2!1sen!2suk"
               style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
