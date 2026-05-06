@@ -18,6 +18,8 @@ $recipients = [
     'Cadet Application' => 'ajolley@309aircadets.co.uk',
     'Staff Application' => 'ajolley@309aircadets.co.uk',
     'Committee Application' => 'ajolley@309aircadets.co.uk',
+    'General Enquiries' => 'oc.309@rafac.mod.gov.uk',
+    'Visits / Training Enquiries' => 'training.309@rafac.mod.gov.uk',
     'default' => 'ajolley@309aircadets.co.uk'
 ];
 

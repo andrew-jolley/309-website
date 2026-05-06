@@ -366,28 +366,202 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             We are located in Sawbridgeworth. Come visit us on a parade night!
           </p>
         </div>
-        <div class="relative overflow-hidden rounded-2xl shadow-xl bg-slate-100 min-h-[450px]">
-          
-          <!-- Fallback Message (Displays if map doesn't load) -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-slate-400 mb-4">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-            </svg>
-            <h3 class="text-xl font-semibold text-slate-700 mb-2">Map Unavailable</h3>
-            <p class="text-slate-500 max-w-md">
-              Google Maps content is blocked. Please check your browser's cookie settings or disable content blockers to view the map.
-            </p>
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+          <div class="space-y-6">
+            <div class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
+              <div class="inline-flex items-center rounded-full bg-raf-blue/10 px-3 py-1 text-sm font-semibold text-raf-blue">Parade Nights</div>
+              <h3 class="mt-4 text-2xl font-bold tracking-tight text-slate-900">When to visit us</h3>
+              <p class="mt-4 text-base leading-7 text-slate-600">Mondays &amp; Thursdays: 1900-2130</p>
+              <p class="mt-3 text-base leading-7 text-slate-600">If you are visiting for the first time, please use the contact details below so we can help you get in touch with the right team.</p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-900 p-6 shadow-lg">
+              <h3 class="text-2xl font-bold tracking-tight text-white">Contact Us</h3>
+              <p class="mt-3 text-base leading-7 text-slate-300">Choose the enquiry route that fits best and we’ll get it to the right inbox.</p>
+              <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <button type="button" data-modal-target="general-enquiries-modal" class="inline-flex items-center justify-center rounded-md bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">General Enquiries</button>
+                <button type="button" data-modal-target="training-enquiries-modal" class="inline-flex items-center justify-center rounded-md bg-raf-light-blue px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-sky-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-light-blue">Visits / Training Enquiries</button>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-slate-400">Prefer to speak to someone in person? Use the details above during parade nights.</p>
+            </div>
           </div>
 
-          <!-- Map Iframe -->
-          <iframe 
-            class="relative z-10 w-full h-[450px] bg-white transition-opacity duration-300"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.391029164116!2d0.14721407665346362!3d51.817286971885515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d89afba6e50321%3A0xdc74cfbbad99b977!2s309%20(Sawbridgeworth)%20Squadron%20Air%20Cadets!5e0!3m2!1sen!2suk!4v1727285566376!5m2!1sen!2suk"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <div class="relative overflow-hidden rounded-2xl shadow-xl bg-slate-100 min-h-[450px]">
+            
+            <!-- Fallback Message (Displays if map doesn't load) -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-slate-400 mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+              </svg>
+              <h3 class="text-xl font-semibold text-slate-700 mb-2">Map Unavailable</h3>
+              <p class="text-slate-500 max-w-md">
+                Google Maps content is blocked. Please check your browser's cookie settings or disable content blockers to view the map.
+              </p>
+            </div>
+
+            <!-- Map Iframe -->
+            <iframe 
+              class="relative z-10 w-full h-[450px] bg-white transition-opacity duration-300"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2466.391029164116!2d0.14721407665346362!3d51.817286971885515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d89afba6e50321%3A0xdc74cfbbad99b977!2s309%20(Sawbridgeworth)%20Squadron%20Air%20Cadets!5e0!3m2!1sen!2suk!4v1727285566376!5m2!1sen!2suk"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
         </div>
        </div>
     </section>
+<div id="general-enquiries-modal" class="modal-container opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out">
+  <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative transition-all duration-300 ease-out opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto">
+    <button type="button" class="modal-close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <span class="sr-only">Close modal</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+
+    <h3 class="text-2xl font-bold text-slate-900">General Enquiries</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      Send us a general question and we’ll pass it to the right person.
+    </p>
+
+    <div id="general-enquiries-success" class="hidden mt-6 text-center py-8">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 mb-4">
+        <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">Enquiry Sent</h3>
+      <p class="mt-2 text-sm text-slate-600">Thanks for getting in touch. We’ll reply as soon as we can.</p>
+      <button type="button" class="mt-6 modal-close-btn w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">Close Window</button>
+    </div>
+
+    <form id="general-enquiries-form" class="ajax-form mt-6 space-y-4" data-target="general-enquiries">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="form_type" value="General Enquiries">
+
+      <div>
+        <label for="general-name" class="block text-sm font-medium leading-6 text-slate-900">Your Name</label>
+        <div class="mt-2">
+          <input type="text" name="name" id="general-name" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="general-email" class="block text-sm font-medium leading-6 text-slate-900">Email Address</label>
+        <div class="mt-2">
+          <input type="email" name="email" id="general-email" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="general-phone" class="block text-sm font-medium leading-6 text-slate-900">Phone Number</label>
+        <div class="mt-2">
+          <input type="tel" name="phone" id="general-phone" class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="general-message" class="block text-sm font-medium leading-6 text-slate-900">Message</label>
+        <div class="mt-2">
+          <textarea name="message" id="general-message" rows="4" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6"></textarea>
+        </div>
+      </div>
+
+      <div id="general-enquiries-error" class="hidden rounded-md bg-red-50 p-4 mt-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p id="general-enquiries-error-text" class="text-sm font-medium text-red-800">There was a problem submitting your enquiry.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cf-turnstile mt-4" data-sitekey="0x4AAAAAAC1XjyLGNmotH5nb" data-theme="light"></div>
+
+      <div class="pt-2">
+        <button type="submit" id="general-enquiries-submit-btn" class="flex w-full justify-center rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">
+          <span class="btn-text">Send Enquiry</span>
+          <svg class="btn-spinner hidden ml-3 h-5 w-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="training-enquiries-modal" class="modal-container opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out">
+  <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative transition-all duration-300 ease-out opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto">
+    <button type="button" class="modal-close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <span class="sr-only">Close modal</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+
+    <h3 class="text-2xl font-bold text-slate-900">Visits / Training Enquiries</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      Use this form for visits, training, or anything related to attending the squadron.
+    </p>
+
+    <div id="training-enquiries-success" class="hidden mt-6 text-center py-8">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 mb-4">
+        <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">Enquiry Sent</h3>
+      <p class="mt-2 text-sm text-slate-600">Thanks for reaching out. The training team will be in touch shortly.</p>
+      <button type="button" class="mt-6 modal-close-btn w-full rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">Close Window</button>
+    </div>
+
+    <form id="training-enquiries-form" class="ajax-form mt-6 space-y-4" data-target="training-enquiries">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="form_type" value="Visits / Training Enquiries">
+
+      <div>
+        <label for="training-name" class="block text-sm font-medium leading-6 text-slate-900">Your Name</label>
+        <div class="mt-2">
+          <input type="text" name="name" id="training-name" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="training-email" class="block text-sm font-medium leading-6 text-slate-900">Email Address</label>
+        <div class="mt-2">
+          <input type="email" name="email" id="training-email" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="training-phone" class="block text-sm font-medium leading-6 text-slate-900">Phone Number</label>
+        <div class="mt-2">
+          <input type="tel" name="phone" id="training-phone" class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="training-message" class="block text-sm font-medium leading-6 text-slate-900">Message</label>
+        <div class="mt-2">
+          <textarea name="message" id="training-message" rows="4" required class="block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-raf-blue sm:text-sm sm:leading-6"></textarea>
+        </div>
+      </div>
+
+      <div id="training-enquiries-error" class="hidden rounded-md bg-red-50 p-4 mt-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p id="training-enquiries-error-text" class="text-sm font-medium text-red-800">There was a problem submitting your enquiry.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cf-turnstile mt-4" data-sitekey="0x4AAAAAAC1XjyLGNmotH5nb" data-theme="light"></div>
+
+      <div class="pt-2">
+        <button type="submit" id="training-enquiries-submit-btn" class="flex w-full justify-center rounded-md bg-raf-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-raf-blue">
+          <span class="btn-text">Send Enquiry</span>
+          <svg class="btn-spinner hidden ml-3 h-5 w-5 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 <div id="cadet-modal" class="modal-container opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out">
   <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative transition-all duration-300 ease-out opacity-0 translate-y-4 max-h-[90vh] overflow-y-auto">
     <button type="button" class="modal-close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-600">
