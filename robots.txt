@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin-events.php
+Disallow: /deploy.php
+Disallow: /parents.php
+
+Sitemap: https://309aircadets.co.uk/sitemap.xml
