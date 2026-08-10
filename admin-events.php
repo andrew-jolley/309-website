@@ -62,13 +62,23 @@ $isLoggedIn = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'
 
 // Handle Adding an Event
 if ($isLoggedIn && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_event'])) {
+    $portalInput = trim($_POST['link'] ?? '');
+    $portalLink = '';
+    if (!empty($portalInput)) {
+        if (preg_match('/^https?:\/\//i', $portalInput)) {
+            $portalLink = htmlspecialchars($portalInput);
+        } else {
+            $portalLink = 'https://cadets.bader.mod.uk/events/detail/' . htmlspecialchars($portalInput);
+        }
+    }
+
     $newEvent = [
         'id' => uniqid(),
         'name' => htmlspecialchars($_POST['name']),
         'dates' => htmlspecialchars($_POST['dates']),
         'sort_date' => htmlspecialchars($_POST['sort_date'] ?? ''),
         'location' => htmlspecialchars($_POST['location']),
-        'link' => htmlspecialchars($_POST['link'] ?? '')
+        'link' => $portalLink
     ];
     
     $events[] = $newEvent;
@@ -177,8 +187,9 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                     <input type="text" name="location" required placeholder="e.g. Squadron HQ" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div class="md:col-span-2">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Cadet Portal Link (Optional)</label>
-                    <input type="url" name="link" placeholder="https://cadetportal.example.com/..." class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Cadet Portal Event ID (Optional)</label>
+                    <input type="text" name="link" placeholder="e.g. 12345 (or full link)" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <p class="text-xs text-gray-500 mt-1">Just paste the event ID and the full link will be automatically generated.</p>
                 </div>
             </div>
             <button type="submit" name="add_event" class="mt-4 bg-green-600 text-white px-6 py-2 rounded shadow hover:bg-green-700 font-bold transition">Add Event</button>
