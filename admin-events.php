@@ -5,8 +5,8 @@ session_start();
 // SECURITY: To avoid hardcoding your plain-text password, generate a password hash
 // (e.g., using password_hash('MySecurePass', PASSWORD_DEFAULT) in a separate script)
 // and place it in $adminPasswordHash below. Then set $adminPasswordPlain to empty.
-$adminPasswordHash = ''; 
-$adminPasswordPlain = 'AdminPassword123'; // Clear this once you have a hash set
+$adminPasswordHash = '$2y$10$.0E8APz3HU237xfFOd6Tee78roX1Mo7nbTCuJ5E04OvANGObCnA8O'; 
+$adminPasswordPlain = ''; // Clear this once you have a hash set
 $dataFile = 'events.json';
 // ---------------------
 
