@@ -78,7 +78,8 @@ if ($isLoggedIn && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_ev
         'dates' => htmlspecialchars($_POST['dates']),
         'sort_date' => htmlspecialchars($_POST['sort_date'] ?? ''),
         'location' => htmlspecialchars($_POST['location']),
-        'link' => $portalLink
+        'link' => $portalLink,
+        'prereqs' => htmlspecialchars($_POST['prereqs'] ?? '')
     ];
     
     $events[] = $newEvent;
@@ -186,7 +187,11 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                     <label class="block text-gray-700 text-sm font-bold mb-2">Location *</label>
                     <input type="text" name="location" required placeholder="e.g. Squadron HQ" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                <div class="md:col-span-2">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Pre-requisites (Optional)</label>
+                    <input type="text" name="prereqs" placeholder="e.g. Bronze First Aid" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
                     <label class="block text-gray-700 text-sm font-bold mb-2">Cadet Portal Event ID (Optional)</label>
                     <input type="text" name="link" placeholder="e.g. 12345 (or full link)" class="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <p class="text-xs text-gray-500 mt-1">Just paste the event ID and the full link will be automatically generated.</p>
@@ -228,7 +233,12 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                     <?php else: ?>
                         <?php foreach ($currentEvents as $event): ?>
                             <tr class="hover:bg-gray-50 transition">
-                                <td class="py-3 px-4 text-sm text-gray-900 font-medium"><?php echo $event['name']; ?></td>
+                                <td class="py-3 px-4 text-sm text-gray-900 font-medium">
+                                    <?php echo $event['name']; ?>
+                                    <?php if (!empty($event['prereqs'])): ?>
+                                        <div class="text-xs text-gray-500 mt-1"><span class="font-semibold">Prereq:</span> <?php echo htmlspecialchars($event['prereqs']); ?></div>
+                                    <?php endif; ?>
+                                </td>
                                 <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['dates']; ?></td>
                                 <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['location']; ?></td>
                                 <td class="py-3 px-4 text-sm">
@@ -268,7 +278,12 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                     <tbody class="divide-y divide-gray-200">
                         <?php foreach ($pastEvents as $event): ?>
                             <tr class="hover:bg-gray-50 transition opacity-75">
-                                <td class="py-3 px-4 text-sm text-gray-900 font-medium"><?php echo $event['name']; ?></td>
+                                <td class="py-3 px-4 text-sm text-gray-900 font-medium">
+                                    <?php echo $event['name']; ?>
+                                    <?php if (!empty($event['prereqs'])): ?>
+                                        <div class="text-xs text-gray-500 mt-1"><span class="font-semibold">Prereq:</span> <?php echo htmlspecialchars($event['prereqs']); ?></div>
+                                    <?php endif; ?>
+                                </td>
                                 <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['dates']; ?></td>
                                 <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['location']; ?></td>
                                 <td class="py-3 px-4 text-sm">

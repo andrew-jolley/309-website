@@ -84,6 +84,12 @@ $events = array_filter($events, function($event) use ($currentDate) {
                                 <tr class="hover:bg-blue-50 transition-colors duration-200">
                                     <td class="py-4 px-6">
                                         <div class="text-sm font-semibold text-gray-900"><?php echo htmlspecialchars($event['name']); ?></div>
+                                        <?php if (!empty($event['prereqs'])): ?>
+                                            <div class="text-xs text-gray-500 mt-1 flex items-center">
+                                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                <span class="font-semibold mr-1">Requires:</span> <?php echo htmlspecialchars($event['prereqs']); ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </td>
                                     <td class="py-4 px-6 whitespace-nowrap">
                                         <div class="inline-flex items-center text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full font-medium">
