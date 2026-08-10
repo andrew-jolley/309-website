@@ -2,8 +2,11 @@
 session_start();
 
 // --- Configuration ---
-// Default password for the admin page. You should change this!
-$adminPassword = 'AdminPassword123';
+// SECURITY: To avoid hardcoding your plain-text password, generate a password hash
+// (e.g., using password_hash('MySecurePass', PASSWORD_DEFAULT) in a separate script)
+// and place it in $adminPasswordHash below. Then set $adminPasswordPlain to empty.
+$adminPasswordHash = ''; 
+$adminPasswordPlain = 'AdminPassword123'; // Clear this once you have a hash set
 $dataFile = 'events.json';
 // ---------------------
 
@@ -31,7 +34,16 @@ usort($events, function($a, $b) {
 
 // Handle Login
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
-    if ($_POST['password'] === $adminPassword) {
+    $inputPassword = $_POST['password'];
+    $isValid = false;
+    
+    if (!empty($adminPasswordHash) && password_verify($inputPassword, $adminPasswordHash)) {
+        $isValid = true;
+    } elseif (!empty($adminPasswordPlain) && $inputPassword === $adminPasswordPlain) {
+        $isValid = true;
+    }
+
+    if ($isValid) {
         $_SESSION['admin_logged_in'] = true;
     } else {
         $error = 'Incorrect password.';

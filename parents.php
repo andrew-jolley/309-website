@@ -18,6 +18,13 @@ usort($events, function($a, $b) {
     $dateB = isset($b['sort_date']) && $b['sort_date'] !== '' ? $b['sort_date'] : '9999-12-31';
     return strcmp($dateA, $dateB);
 });
+
+// Filter out events that are in the past
+$currentDate = date('Y-m-d');
+$events = array_filter($events, function($event) use ($currentDate) {
+    $date = isset($event['sort_date']) && $event['sort_date'] !== '' ? $event['sort_date'] : '9999-12-31';
+    return $date >= $currentDate;
+});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +82,7 @@ usort($events, function($a, $b) {
                         <?php else: ?>
                             <?php foreach ($events as $event): ?>
                                 <tr class="hover:bg-blue-50 transition-colors duration-200">
-                                    <td class="py-4 px-6 whitespace-nowrap">
+                                    <td class="py-4 px-6">
                                         <div class="text-sm font-semibold text-gray-900"><?php echo htmlspecialchars($event['name']); ?></div>
                                     </td>
                                     <td class="py-4 px-6 whitespace-nowrap">
@@ -84,10 +91,10 @@ usort($events, function($a, $b) {
                                             <?php echo htmlspecialchars($event['dates']); ?>
                                         </div>
                                     </td>
-                                    <td class="py-4 px-6 whitespace-nowrap">
+                                    <td class="py-4 px-6">
                                         <div class="flex items-center text-sm text-gray-700">
-                                            <svg class="w-4 h-4 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                            <?php echo htmlspecialchars($event['location']); ?>
+                                            <svg class="w-4 h-4 mr-2 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                            <span><?php echo htmlspecialchars($event['location']); ?></span>
                                         </div>
                                     </td>
                                     <td class="py-4 px-6 text-center whitespace-nowrap">

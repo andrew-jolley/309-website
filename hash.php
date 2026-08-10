@@ -1,0 +1,1 @@
+<?php echo password_hash('Slamdunk.21', PASSWORD_DEFAULT); ?>
