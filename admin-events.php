@@ -185,6 +185,20 @@ if ($isLoggedIn && isset($_GET['delete'])) {
         </form>
 
         <!-- Current Events Table -->
+        <?php
+        $currentDate = date('Y-m-d');
+        $currentEvents = [];
+        $pastEvents = [];
+        foreach ($events as $event) {
+            $date = isset($event['sort_date']) && $event['sort_date'] !== '' ? $event['sort_date'] : '9999-12-31';
+            if ($date >= $currentDate) {
+                $currentEvents[] = $event;
+            } else {
+                $pastEvents[] = $event;
+            }
+        }
+        ?>
+
         <h2 class="text-xl font-semibold text-gray-800 mb-4">Current Events</h2>
         <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
             <table class="min-w-full bg-white divide-y divide-gray-200">
@@ -198,10 +212,10 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    <?php if (empty($events)): ?>
-                        <tr><td colspan="5" class="py-6 px-4 text-center text-gray-500">No events listed yet. Fill out the form above.</td></tr>
+                    <?php if (empty($currentEvents)): ?>
+                        <tr><td colspan="5" class="py-6 px-4 text-center text-gray-500">No current events listed.</td></tr>
                     <?php else: ?>
-                        <?php foreach ($events as $event): ?>
+                        <?php foreach ($currentEvents as $event): ?>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3 px-4 text-sm text-gray-900 font-medium"><?php echo $event['name']; ?></td>
                                 <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['dates']; ?></td>
@@ -222,6 +236,47 @@ if ($isLoggedIn && isset($_GET['delete'])) {
                 </tbody>
             </table>
         </div>
+
+        <?php if (!empty($pastEvents)): ?>
+        <details class="mt-8 mb-4 group">
+            <summary class="text-xl font-semibold text-gray-800 cursor-pointer hover:text-gray-600 transition outline-none flex items-center">
+                <svg class="w-5 h-5 mr-2 transform group-open:rotate-90 transition-transform text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                Past Events (<?php echo count($pastEvents); ?>)
+            </summary>
+            <div class="mt-4 overflow-x-auto shadow-sm rounded-lg border border-gray-200">
+                <table class="min-w-full bg-white divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dates</th>
+                            <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                            <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Portal Link</th>
+                            <th class="py-3 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <?php foreach ($pastEvents as $event): ?>
+                            <tr class="hover:bg-gray-50 transition opacity-75">
+                                <td class="py-3 px-4 text-sm text-gray-900 font-medium"><?php echo $event['name']; ?></td>
+                                <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['dates']; ?></td>
+                                <td class="py-3 px-4 text-sm text-gray-600"><?php echo $event['location']; ?></td>
+                                <td class="py-3 px-4 text-sm">
+                                    <?php if (!empty($event['link'])): ?>
+                                        <a href="<?php echo $event['link']; ?>" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800">View on Portal</a>
+                                    <?php else: ?>
+                                        <span class="text-gray-400 italic">None</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td class="py-3 px-4 text-sm text-center">
+                                    <a href="?delete=<?php echo urlencode($event['id']); ?>" onclick="return confirm('Are you sure you want to delete this past event?');" class="text-red-500 hover:text-red-700 font-medium px-3 py-1 bg-red-50 rounded hover:bg-red-100 transition">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+        <?php endif; ?>
     <?php endif; ?>
 </div>
 
