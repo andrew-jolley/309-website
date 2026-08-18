@@ -12,6 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Inject Build Number
+        run: |
+          BUILD_DATE=$(TZ='Europe/London' date +'%y%m%d')
+          sed -i "s/__BUILD_DATE__/$BUILD_DATE/g" index.html
+          sed -i "s/__BUILD_NUMBER__/${{ github.run_number }}/g" index.html
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
