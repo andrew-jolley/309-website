@@ -4,6 +4,10 @@ RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Redirect parents portal to show a popup and redirect to the new portal
+RewriteCond %{REQUEST_URI} !^/parents-redirect\.html$
+RewriteRule ^/?parents(\.php|\.html|/?)$ /parents-redirect.html [L,NC]
+
 # Custom Error Pages
 ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html
