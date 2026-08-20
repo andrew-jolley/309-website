@@ -38,7 +38,7 @@
 
 
 <!-- Cloudflare Turnstile -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 
 <!-- Tailwind CSS (with Cloudflare fix) -->
 <script src="https://cdn.tailwindcss.com" data-cfasync="false"></script>
@@ -1043,6 +1043,20 @@ try {
         // Show the content (with a slight delay for the animation)
         setTimeout(() => {
           modalContent.classList.remove('opacity-0', 'translate-y-4');
+
+          // Explicitly render Turnstile now that it's visible
+          const turnstileContainer = modal.querySelector('.cf-turnstile');
+          if (turnstileContainer && typeof turnstile !== 'undefined') {
+            if (!turnstileContainer.getAttribute('data-widget-id')) {
+              const widgetId = turnstile.render(turnstileContainer, {
+                sitekey: turnstileContainer.getAttribute('data-sitekey'),
+                theme: turnstileContainer.getAttribute('data-theme') || 'light'
+              });
+              turnstileContainer.setAttribute('data-widget-id', widgetId);
+            } else {
+              turnstile.reset(turnstileContainer.getAttribute('data-widget-id'));
+            }
+          }
         }, 20); // 20ms is enough for the browser to register the change
       }
 
@@ -1155,7 +1169,11 @@ try {
               successContainer.classList.remove('hidden');
               form.reset();
               // Reset turnstile if exists
-              if (typeof turnstile !== 'undefined') turnstile.reset();
+              const tsContainer = form.querySelector('.cf-turnstile');
+              if (typeof turnstile !== 'undefined' && tsContainer) {
+                const widgetId = tsContainer.getAttribute('data-widget-id');
+                if (widgetId) turnstile.reset(widgetId);
+              }
             } else {
               // Show error message
               throw new Error(result.message || 'There was an issue processing your submission.');
@@ -1163,7 +1181,11 @@ try {
           } catch (err) {
             errorText.textContent = err.message || 'Network error occurred. Please try again.';
             errorContainer.classList.remove('hidden');
-            if (typeof turnstile !== 'undefined') turnstile.reset();
+            const tsContainer = form.querySelector('.cf-turnstile');
+            if (typeof turnstile !== 'undefined' && tsContainer) {
+              const widgetId = tsContainer.getAttribute('data-widget-id');
+              if (widgetId) turnstile.reset(widgetId);
+            }
           } finally {
             // Re-enable button
             submitBtn.disabled = false;
