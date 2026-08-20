@@ -1144,7 +1144,7 @@ try {
           const dataObj = Object.fromEntries(formData.entries());
 
           try {
-            const response = await fetch('/api/submit-form', {
+            const response = await fetch('https://309-portal-api-dedicated-acfbaeekcra5fpcm.uksouth-01.azurewebsites.net/api/submit-form', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
