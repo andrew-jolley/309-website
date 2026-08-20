@@ -93,8 +93,8 @@
     cursor: grabbing;
   }
 </style>
-  <!-- Cloudflare Zaraz Manual Embed -->
-  <script src="/cdn-cgi/zaraz/i.js" referrerpolicy="origin" data-cfasync="false"></script>
+  <!-- Cloudflare Zaraz Manual Embed (Commented out because site is not proxied by Cloudflare) -->
+  <!-- <script src="/cdn-cgi/zaraz/i.js" referrerpolicy="origin" data-cfasync="false"></script> -->
 </head>
 <body class="font-sans bg-slate-50 text-slate-800">
 
@@ -1153,7 +1153,14 @@ try {
               body: JSON.stringify(dataObj)
             });
 
-            const result = await response.json();
+            let result = {};
+            try {
+              result = await response.json();
+            } catch (e) {
+              if (!response.ok) {
+                throw new Error('There was an issue processing your submission (Server Error).');
+              }
+            }
 
             if (response.ok && result.success) {
               // Show Success UI and hide form
