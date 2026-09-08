@@ -3,24 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>500 - Server Error</title>
+    <title>500 - Server Error | 309 Squadron</title>
+    <link rel="icon" type="image/png" href="/assets/img/crest.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        html { visibility: hidden; }
-        body { font-family: 'Inter', system-ui, sans-serif; }
-    </style>
     <script>
-        window.addEventListener('load', function() {
-            document.documentElement.style.visibility = 'visible';
-        });
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'raf-blue': '#4D45AF',
+              'raf-light-blue': '#73DAFA',
+            }
+          },
+        },
+      }
     </script>
 </head>
-<body class="bg-gray-50 flex items-center justify-center h-screen antialiased">
-    <div class="text-center px-4">
-        <h1 class="text-9xl font-extrabold text-blue-900">500</h1>
-        <p class="text-2xl md:text-3xl font-light text-gray-600 mt-4">Internal Server Error.</p>
-        <p class="text-gray-500 mt-2 mb-8">Something went wrong on our end. Please try again later.</p>
-        <a href="/" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">Go to Homepage</a>
+<body class="bg-slate-50 flex items-center justify-center h-screen antialiased">
+    <div class="text-center px-4 max-w-lg mx-auto">
+        <img src="/assets/img/crest.png" alt="309 Squadron Crest" class="h-24 w-auto mx-auto mb-8">
+        <h1 class="text-7xl font-extrabold text-raf-blue">500</h1>
+        <p class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mt-4">Internal Server Error.</p>
+        <p class="text-slate-600 mt-4 mb-8">Sorry, something went wrong on our end. Please try again later or return to the homepage.</p>
+        <a href="/" class="inline-flex items-center justify-center rounded-md bg-raf-blue px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition-colors">
+            Back to Homepage
+        </a>
     </div>
 </body>
 </html>
