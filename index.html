@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>309 (Sawbridgeworth) Squadron - Royal Air Force Air Cadets</title>
 <meta name="description" content="309 (Sawbridgeworth) Squadron Air Cadets - Providing activities, leadership, and skills for young people aged 12-20 in Sawbridgeworth.">
+<link rel="canonical" href="https://309aircadets.co.uk/">
 
 <!-- Favicons -->
 <link rel="icon" type="image/png" href="https://309aircadets.co.uk/assets/img/crest.png">
@@ -50,7 +51,7 @@
           sans: ['Inter', 'sans-serif'],
         },
         colors: {
-          'raf-blue': '#4D45AF',
+          'raf-blue': '#00245D',
           'raf-light-blue': '#73DAFA',
         }
       },
@@ -72,8 +73,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* This creates a purple gradient over whatever image loads */
-    background-image: linear-gradient(135deg, rgba(77, 69, 175, 0.95) 0%, rgba(58, 52, 143, 0.85) 100%);
+    /* This creates an RAF dark blue gradient over whatever image loads */
+    background-image: linear-gradient(135deg, rgba(0, 36, 93, 0.7) 0%, rgba(0, 48, 115, 0.5) 100%);
   }
   
   /* Hide scrollbar for gallery but keep functionality */
@@ -94,7 +95,7 @@
   }
 </style>
 </head>
-<body class="font-sans bg-slate-50 text-slate-800">
+<body class="font-sans bg-slate-50 text-slate-800 overflow-x-hidden">
 
 
   <!-- 
@@ -153,7 +154,7 @@
       <div class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" id="mobile-backdrop"></div>
       <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-900/10">
         <div class="flex items-center justify-between">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="/" class="-m-1.5 p-1.5">
             <span class="sr-only">309 Squadron</span>
             <img class="h-8 w-auto" src="./assets/img/crest.png" alt="309 Squadron Crest">
           </a>
@@ -888,8 +889,10 @@
       <br class="sm:hidden">
       <i id="version-info">309 Air Cadets</i> (All Rights Reserved)
     </p>
-    <p class="text-xs mt-4 text-slate-300">
+    <p class="text-xs mt-4 text-slate-300 space-x-2">
       <a href="/privacy-policy.html" class="hover:text-white underline">Privacy Policy</a>
+      <span>|</span>
+      <a href="/terms-and-conditions.html" class="hover:text-white underline">Terms & Conditions</a>
     </p>
   </footer>
 
@@ -985,7 +988,7 @@ try {
     function setRandomHeroImage() {
       const heroSection = document.getElementById('hero-section');
       const randomImage = heroImages[Math.floor(Math.random() * heroImages.length)];
-      heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(77, 69, 175, 0.95) 0%, rgba(58, 52, 143, 0.85) 100%), url('${randomImage}')`;
+      heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(0, 36, 93, 0.7) 0%, rgba(0, 48, 115, 0.5) 100%), url('${randomImage}')`;
     }
 
     // Run on page load
